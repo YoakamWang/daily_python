@@ -3,18 +3,23 @@ from moviepy.editor import *
 """
 MoviePy可以实现视频的剪辑、提取音频等强大的功能。
 """
-video = VideoFileClip("./movie/lake.mp4").subclip(50, 60)
-audio_path = "./movie/audio.mp3"
-print(video.size)
-print(video.duration)
-# Make the text. Many more options are available.
-txt_clip = (TextClip("YJ Holidays 2013", fontsize=70, color='white')
-            .set_position('center')
-            .set_duration(10))
-audio = video.audio
-result = CompositeVideoClip([video, txt_clip])  # Overlay text on video
-result.write_videofile("./movie/myHolidays_edited.mp4", fps=40)
+video=VideoFileClip(r'D:\Files\PDF\english\MOB_11.1.4.1.1_s.mp4')
+audio=video.audio
+audio_path = r"D:\Files\PDF\english\MOB_11.1.4.1.1_s.mp3"
 audio.write_audiofile(audio_path)
+
+# video = VideoFileClip("./movie/lake.mp4").subclip(50, 60)
+# audio_path = "./movie/audio.mp3"
+# print(video.size)
+# print(video.duration)
+# # Make the text. Many more options are available.
+# txt_clip = (TextClip("YJ Holidays 2013", fontsize=70, color='white')
+#             .set_position('center')
+#             .set_duration(10))
+# audio = video.audio
+# result = CompositeVideoClip([video, txt_clip])  # Overlay text on video
+# result.write_videofile("./movie/myHolidays_edited.mp4", fps=40)
+# audio.write_audiofile(audio_path)
 
 """
 另一个强大的工具spleeter可以实现人声与伴奏的分离。
