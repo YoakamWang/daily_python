@@ -3,11 +3,37 @@ from moviepy.editor import *
 """
 MoviePy可以实现视频的剪辑、提取音频等强大的功能。
 """
-video=VideoFileClip(r'D:\Files\PDF\english\MOB_11.1.4.1.1_s.mp4')
-audio=video.audio
-audio_path = r"D:\Files\PDF\english\MOB_11.1.4.1.1_s.mp3"
-audio.write_audiofile(audio_path)
 
+
+def get_audio_mp4(path_1, base, name):
+    video = VideoFileClip(path_1)
+    audio = video.audio
+    audio_path = os.path.join(base, name + '.mp3')
+    print(audio_path)
+    audio.write_audiofile(audio_path)
+
+
+def get_path():
+    if len(sys.argv) < 2:
+        print("Please try again")
+        sys.exit()
+    path = sys.argv[1]
+    rel_path = os.path.split(path)
+    basepath = rel_path[0]
+    filename = rel_path[1]
+    exe_name = os.path.splitext(filename)
+    rel_filename = exe_name[0]
+    return path, basepath, rel_filename
+
+
+if __name__ == "__main__":
+    mp4_path, base_path, file_name = get_path()
+    get_audio_mp4(mp4_path, base_path, file_name)
+
+    # print(mp4_path)
+    # print(base_path)
+    # print(file_name)
+    # get_audio_mp4()
 # video = VideoFileClip("./movie/lake.mp4").subclip(50, 60)
 # audio_path = "./movie/audio.mp3"
 # print(video.size)
