@@ -1,18 +1,18 @@
 from pdf2docx import Converter
 
+#
 pdf_file = r'D:\Files\OEM&ASP\robot navigation test.pdf'
 docx_file = r'D:\Files\OEM&ASP\robot.docx'
 cv = Converter(pdf_file)
 cv.convert(docx_file, start=0, end=None)
 cv.close()
 
-
-
-#https://www.latexlive.com/home,识别pdf里面的数学公式，然后复制MathML到word里面，，，，搞定！！！   牛牛牛牛！！！
+# https://www.latexlive.com/home,识别pdf里面的数学公式，然后复制MathML到word里面，，，，搞定！！！   牛牛牛牛！！！
+# pip install pix2tex[gui]  安装成功后运行pix2tex_gui,如果报错 运行 pip install -U typing_extensions，搞定  牛牛牛牛！！！！！     https://zhuanlan.zhihu.com/p/395702258
 
 
 # from PyPDF2 import PdfFileReader
-# with open(pdf_file,'r',encoding='symbol') as f:
+# with open(pdf_file,'r',encoding='gb18030') as f:
 #     pdf=PdfFileReader(f)
 #     page=pdf.getPage(10)
 #     print(page)
