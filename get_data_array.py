@@ -1,3 +1,5 @@
+import json
+
 import pandas as pd
 
 
@@ -7,14 +9,24 @@ def data_file():
                      (1.2530081272125244, 0.9054474234580994), (1.2584795951843262, 0.8969888091087341)]
     pdo_data = pd.DataFrame(original_data)
     with open("abc.txt", "w+") as f1:
-        pdo_data.to_csv(f1, index=None, line_terminator="\n")
+        pdo_data.to_csv(f1, index=None, header=["x", "y"], line_terminator="\n")
 
 
 def file_data():
     with open("abc.txt", "r") as f2:
         get_data = pd.read_csv(f2)
-        final_data = get_data.to_numpy()
-        print(final_data)
+        # print(get_data)
+        # final_data = get_data.to_numpy()
+        # final_data = get_data.to_json()
+        # print(final_data)
+        # for item in final_data:
+        #     for x, y in item:
+        #         print(x, y)
+        points = []
+        for row in get_data.iterrows():
+            # print(row[1]['x'])
+            points.append((row[1]["x"], row[1]["y"]))
+        print(points)
 
 
 if __name__ == "__main__":
